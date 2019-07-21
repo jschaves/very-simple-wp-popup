@@ -1,0 +1,94 @@
+/* class cursor pointer  */
+.viewPopup, .box-popups, .close {
+	cursor:pointer; 
+	cursor: hand;
+}
+
+/* The open popup */
+.openPopup .popuptext {
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 999999999;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* The popup data */
+#data {
+	top: 10%;
+	z-index: 999999;
+	width: 10%;
+	position: fixed;
+	margin: 0;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	word-wrap: break-word;
+}
+
+/* Popup close */
+.close {
+    width: 7%;
+    margin-top: 3%;
+	margin-right: 10px;
+	float: right;
+}
+
+/* background popup */
+#backgroundPopup {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;	
+}
+
+/* status popup */
+.box-popups {
+	height: 25px;
+	width: 1%;
+	box-sizing: content-box;
+}
+
+#next-popups-left {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	top: 6%;
+	z-index: 999999;
+	width: auto;
+	position: fixed;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 48.5%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#next-popups-right {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0 0 0 30px;
+	top: 6%;
+	z-index: 999999;
+	width: auto;
+	position: fixed;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 51%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.img-popup {
+  max-width: 100%;
+  height: auto
+}

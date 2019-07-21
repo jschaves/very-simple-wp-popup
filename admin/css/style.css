@@ -1,0 +1,97 @@
+/* Popup container - can be anything you want */
+.preview-popup {
+	cursor:pointer; 
+	cursor: hand;
+}
+.openPopup {
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width:100px;
+}
+
+/* The actual popup */
+.openPopup .popuptext {
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+#data {
+	top:10%;
+	z-index:99999;
+	width:10%;
+	position:fixed;
+	margin: 0;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	word-wrap: break-word;
+}
+
+/* Popup close */
+.close {
+    width: 10%;
+    margin-top: 46px;
+}
+
+/* Toggle this class - hide and show the popup */
+.openPopup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+#backgroundPopup {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;	
+}
+
+.ulPopup {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ulPopup > li {
+  float: left;
+}
+
+.formPopup > p.submit {
+    display: contents;
+}
+
+#listPopup {
+	height: 600px;
+	overflow: auto;
+	width: 99%;
+	border: 1px solid;
+	padding: 10px;
+}
