@@ -20,7 +20,7 @@ This is how it works:
 
 == Installation ==
 
-Download https://github.com/jschaves/very-simple-wp-popup/archive/master.zip remane very-simple-wp-popup-master.zip to very-simple-wp-popup.zip
+Download https://github.com/jschaves/very-simple-wp-popup/archive/master.zip remane very-simple-wp-popup-master folder to very-simple-wp-popup
 Upload the Very Simple WordPress Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
 
 
