@@ -62,7 +62,7 @@ var openNextPopup =	function(idNext) {
 										'background-color: ' + backgroundColorPopup + ';' +
 										'opacity: ' + opacityPopup + ';' +
 										'color: ' + colorPopup + ';" ' +
-										'id="data">' + window.atob(unescape(encodeURIComponent(contentsPopup))) +
+										'id="data">' + decodeURIComponent(escape(window.atob(contentsPopup))) +
 									'</span>';
 								
 					if(totalPopups > 1) {

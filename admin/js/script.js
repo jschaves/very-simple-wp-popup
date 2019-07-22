@@ -220,7 +220,7 @@ var closePopup = function() {
 										'background-color: ' + colorPopup + ';' +
 										'opacity: ' + popupOpacity + ';' +
 										'color: ' + textColor + ';" ' +
-										'id="data">' + window.atob(unescape(encodeURIComponent(contents))) +
+										'id="data">' + decodeURIComponent(escape(window.atob(contents))) +
 									'</span>' +
 								'</div>' +
 							'</span>' +
