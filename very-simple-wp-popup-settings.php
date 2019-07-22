@@ -73,6 +73,21 @@ function add_languages() {
 }
 add_action( 'plugins_loaded', 'add_languages' );
 
+//add iframe to popup
+function custom_wpkses_post_tags( $tags, $context ) {
+	if ( 'post' === $context ) {
+		$tags['iframe'] = array(
+			'src'             => true,
+			'height'          => true,
+			'width'           => true,
+			'frameborder'     => true,
+			'allowfullscreen' => true,
+		);
+	}
+	return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2 );
+
 function very_simple_wp_popup_menu() {
 	// Setup and initialize the class for saving our options.
     $serializer = new Serializer();
