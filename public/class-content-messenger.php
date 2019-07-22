@@ -63,7 +63,7 @@ class Content_Messenger {
 					$contents = explode( '=', $stylePopup[11] );
 					$title = explode( '=', $stylePopup[12] );
 					
-					$html[$a] = '<a class="viewPopup" ' .
+					$html[$a] = '<p><a class="viewPopup" ' .
 									'n-popup="'  . $control . '" ' .
 									'id-popup="'  . $id[1] . '" ' .
 									'bc="' . $backgroundColor[1] . '" ' .
@@ -79,11 +79,11 @@ class Content_Messenger {
 									'contents-popup="' . $contents[1] . '" ' .
 									'actual-url="' . plugin_dir_url( __FILE__ ) . '" ' .
 									'title-popup="' . $title[1] . '">' . $title[1] .
-								'</a>';
+								'</a><p>';
 					$content = str_replace( $filter[$a], $html[$a], $content );
 					$control++;
 				} else {
-					$content = str_replace( $filter[$a], $filter[$a] . ' ' .  __( 'This popup does not exist', 'very-simple-wp-popup' ), $content );
+					$content = str_replace( $filter[$a], '<p>' . $filter[$a] . ' ' .  __( 'This popup does not exist', 'very-simple-wp-popup' ) . '</p>', $content );
 				}
 			}
 			return $content;
