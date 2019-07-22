@@ -64,7 +64,7 @@ if ( ! defined( 'WPINC' ) ) {
 					</p>
 				</span>
 				<p>
-					<label<?php _e( 'Background color', 'very-simple-wp-popup' ); ?></label>
+					<label><?php _e( 'Background color', 'very-simple-wp-popup' ); ?></label>
 					<br />
 					<input name="backgroundColor" id="backgroundColor" type="color" value="#c0c0c0" /> <span id="backgroundHexColor">#c0c0c0</span>
 				</p>
@@ -76,7 +76,7 @@ if ( ! defined( 'WPINC' ) ) {
 				<p>
 					<label><?php _e( 'Background Opacity', 'very-simple-wp-popup' ); ?></label>
 					<br />
-					<input name="backgroundOpacity" style="width:300px" id="backgroundOpacity" type="range" min="0" max="100" value="100" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="backgroundHexColorOpacity">1</span>
+					<input name="backgroundOpacity" style="width:300px" id="backgroundOpacity" type="range" min="0" max="100" value="70" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="backgroundHexColorOpacity">1</span>
 				</p>
 				<p>
 					<label><?php _e( 'Opacity of the Popup Background', 'very-simple-wp-popup' ); ?></label>
