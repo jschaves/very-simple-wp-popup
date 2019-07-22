@@ -96,7 +96,7 @@ if ( ! defined( 'WPINC' ) ) {
         ?>
     </form>
 </div>
-<span id="backgroundPopup" class="popuptext" style="display:none"><img src="/wp-content/plugins/very-simple-wp-popup/admin/img/close.png" class="close" /></span>
+<span id="backgroundPopup" class="popuptext" style="display:none"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>../img/close.png" class="close" /></span>
 <br />
 <a class="preview-popup"><?php _e( 'Preview' ); ?></a>
 <div class="openPopup">

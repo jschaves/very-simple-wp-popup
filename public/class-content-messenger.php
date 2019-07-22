@@ -63,7 +63,7 @@ class Content_Messenger {
 					$contents = explode( '=', $stylePopup[11] );
 					$title = explode( '=', $stylePopup[12] );
 					
-					$html[$a] = '<p><a class="viewPopup" ' .
+					$html[$a] = '<a class="viewPopup" ' .
 									'n-popup="'  . $control . '" ' .
 									'id-popup="'  . $id[1] . '" ' .
 									'bc="' . $backgroundColor[1] . '" ' .
@@ -77,8 +77,9 @@ class Content_Messenger {
 									'opacity-popup="' . $popupOpacity[1] / 100 . '" ' .
 									'color-popup="' . $textColor[1] . '" ' .
 									'contents-popup="' . $contents[1] . '" ' .
-									'title-popup="' . $title[1] . '">' . $title[1] . 
-								'</a></p>';
+									'actual-url="' . plugin_dir_url( __FILE__ ) . '" ' .
+									'title-popup="' . $title[1] . '">' . $title[1] .
+								'</a>';
 					$content = str_replace( $filter[$a], $html[$a], $content );
 					$control++;
 				} else {

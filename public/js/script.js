@@ -8,6 +8,7 @@ var classBox;
 var nPopup;
 var openNext;
 var idNext;
+var actualUrl;
 
 var closePopup = function() {
 	
@@ -42,13 +43,14 @@ var openNextPopup =	function(idNext) {
 			borderColorPopup = jQuery(this).attr('border-color-popup');
 			contentsPopup = jQuery(this).attr('contents-popup');
 			nPopup = jQuery(this).attr('n-popup');
+			actualUrl =  jQuery(this).attr('actual-url');
 			
 			template = '<span id="contents-popup">' +
 							'<span id="backgroundPopup" class="popuptext" style="opacity : ' + 
 								backgroundOpacity + 
 								'; background-color : ' + 
 								backgroundColor + '">' +
-								'<img onclick="javascript:closePopup();" src="/wp-content/plugins/very-simple-wp-popup/public/img/close.png" class="close">' +
+								'<img onclick="javascript:closePopup();" src="' + actualUrl + '../public/img/close.png" class="close">' +
 							'</span>' +
 							'<div class="openPopup">' +
 								'<span class="popuptext '  + idPopup + '" style="' +
