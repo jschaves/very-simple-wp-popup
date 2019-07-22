@@ -20,7 +20,9 @@ This is how it works:
 
 == Installation ==
 
-Upload the Very Simple WordPress Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
+Installation for General Use
 
+* Upload the Very Simple WordPress Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
+* In a post or page use the shortcode `[vswppopup ID=xxxxxxxxxxx title=xxxxxxxxxxxx]` to create a popup link.
 
 == Changelog ==
