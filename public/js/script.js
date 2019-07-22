@@ -71,7 +71,7 @@ var openNextPopup =	function(idNext) {
 										idNext = parseInt(nPopup) - parseInt(1);
 										
 										template += '<ul class="box-popups" onclick="javascript:openNextPopup(' + idNext + ')" id="next-popups-left" >' +
-													'	<li><img class="imgPopup" src="/wp-content/plugins/very-simple-wp-popup/public/img/left.png" /></li>' +
+													'	<li><img class="imgPopup" src="' + actualUrl + '../public/img/left.png" /></li>' +
 													'</ul>'; 
 													
 									}
@@ -81,7 +81,7 @@ var openNextPopup =	function(idNext) {
 										idNext = parseInt(nPopup) + parseInt(1);
 										
 										template += '<ul class="box-popups" onclick="javascript:openNextPopup(' + idNext + ')" id="next-popups-right">' +
-													'	<li><img class="imgPopup" src="/wp-content/plugins/very-simple-wp-popup/public/img/right.png" /></li>' +
+													'	<li><img class="imgPopup" src="' + actualUrl + '../public/img/right.png" /></li>' +
 													'</ul>';
 													
 									}
