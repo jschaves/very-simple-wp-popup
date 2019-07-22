@@ -12,13 +12,14 @@ var actualUrl;
 
 var closePopup = function() {
 	
-	document.getElementById('contents-popup').remove();
+	jQuery('#closePopup').remove();
 	
 };
 
 var openNextPopup =	function(idNext) {
-			console.log(idNext);
-	document.getElementById('contents-popup').remove();
+
+	jQuery('#contents-popup').remove();
+	jQuery('#close-popup').remove();
 	jQuery('a[n-popup=' + idNext + ']').click(); 
 			
 };
@@ -45,50 +46,52 @@ var openNextPopup =	function(idNext) {
 			nPopup = jQuery(this).attr('n-popup');
 			actualUrl =  jQuery(this).attr('actual-url');
 			
-			template = '<span id="contents-popup">' +
-							'<span id="backgroundPopup" class="popuptext" style="opacity : ' + 
-								backgroundOpacity + 
-								'; background-color : ' + 
-								backgroundColor + '">' +
-								'<img onclick="javascript:closePopup();" src="' + actualUrl + '../public/img/close.png" class="close">' +
-							'</span>' +
-							'<div class="openPopup">' +
-								'<span class="popuptext '  + idPopup + '" style="' +
-									'width: ' + widthPopup + '%;' +
-									'height: ' + heightPopup + 'px;' +
-									'border: ' + borderPopup + 'px solid ' + borderColorPopup + ';' +
-									'border-radius: ' + borderRadius + 'px;' +
-									'background-color: ' + backgroundColorPopup + ';' +
-									'opacity: ' + opacityPopup + ';' +
-									'color: ' + colorPopup + ';" ' +
-									'id="data">' + window.atob(unescape(encodeURIComponent(contentsPopup))) +
-								'</span>';
+			template =  '<span id="closePopup">' +
+							'<img onclick="javascript:closePopup();" src="' + actualUrl + '../public/img/close.png" class="closePopup" />' +
+							'<span id="contents-popup">' +
+								'<span id="backgroundPopup" class="popuptext" style="' +
+									'opacity : ' + backgroundOpacity + '; ' +
+									'background-color : ' + backgroundColor + '">' +
+								'</span>' +
+								'<div class="openPopup">' +
+									'<span class="popuptext '  + idPopup + '" style="' +
+										'width: ' + widthPopup + '%;' +
+										'height: ' + heightPopup + 'px;' +
+										'border: ' + borderPopup + 'px solid ' + borderColorPopup + ';' +
+										'border-radius: ' + borderRadius + 'px;' +
+										'background-color: ' + backgroundColorPopup + ';' +
+										'opacity: ' + opacityPopup + ';' +
+										'color: ' + colorPopup + ';" ' +
+										'id="data">' + window.atob(unescape(encodeURIComponent(contentsPopup))) +
+									'</span>';
 								
-								if(totalPopups > 1) {
+					if(totalPopups > 1) {
 
-									if(nPopup > 1) {
+						if(nPopup > 1) {
+							
+							idNext = parseInt(nPopup) - parseInt(1);
+							
+							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-left" >' +
+											'<li><img class="imgPopup" src="' + actualUrl + '../public/img/left.png" /></li>' +
+										'</ul>'; 
 										
-										idNext = parseInt(nPopup) - parseInt(1);
+						}
+						
+						if(nPopup < totalPopups) {
+						
+							idNext = parseInt(nPopup) + parseInt(1);
+							
+							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-right">' +
+											'<li><img class="imgPopup" src="' + actualUrl + '../public/img/right.png" /></li>' +
+										'</ul>';
 										
-										template += '<ul class="box-popups" onclick="javascript:openNextPopup(' + idNext + ')" id="next-popups-left" >' +
-													'	<li><img class="imgPopup" src="' + actualUrl + '../public/img/left.png" /></li>' +
-													'</ul>'; 
-													
-									}
+						}
 									
-									if(nPopup < totalPopups) {
-									
-										idNext = parseInt(nPopup) + parseInt(1);
-										
-										template += '<ul class="box-popups" onclick="javascript:openNextPopup(' + idNext + ')" id="next-popups-right">' +
-													'	<li><img class="imgPopup" src="' + actualUrl + '../public/img/right.png" /></li>' +
-													'</ul>';
-													
-									}
-												
-								}
+					}
 								
-			template += '	</div>' +
+						template += '</div>' +
+								'</span>' +
+							'</span>' +
 						'</span>';			
 				
 			$('body').append(template);

@@ -11,7 +11,13 @@ var backgroundColor;
 var idPopup;
 var arrayDataPopup;
 var borderColor;
-var borderWidth2;
+var imgClose = jQuery('.preview-popup').attr('imgclose');
+
+var closePopup = function() {
+	
+	jQuery('#closePopup').remove();
+
+};
 
 (function($) {
 	
@@ -84,26 +90,26 @@ var borderWidth2;
 		jQuery('.preview-popup').click(function() {
 
 			if(!jQuery('#data').hasClass('show')) {
-				
-			
+
 				popupOpacity = jQuery('#popupOpacity').val() / 100;
 				colorPopup = jQuery('#backgroundColorPopup').val();
 				widthPopup = jQuery('#width').val();
 				heightPopup = parseInt($(window).height()) * parseInt(jQuery('#height').val()) / 100;
 				textColor =  jQuery('#textColor').val();
 				if(jQuery('#selectBorder').val() == 1) {
-					
-					borderWidth = 'border:' + jQuery('#borderWidth').val() + 'px solid ' + jQuery('#borderColor').val() + ';';
+
+					borderWidth = jQuery('#borderWidth').val();
+					borderColor = jQuery('#borderColor').val();
 			
 				} else {
-					
+
 					borderWidth = '';
-					
+					borderColor = '';
 				}
-				
+
 				if(jQuery('#type').val() == 1) {
 					
-					radius = 'border-radius:' + jQuery('#radiusPopup').val() + 'px;';
+					radius = jQuery('#radiusPopup').val();
 					
 				} else {
 					
@@ -117,6 +123,7 @@ var borderWidth2;
 				
 				updatePopup(
 					borderWidth,
+					borderColor,
 					radius,
 					widthPopup,
 					heightPopup,
@@ -125,20 +132,14 @@ var borderWidth2;
 					textColor,
 					contents,
 					backgroundColor,
-					backgroundOpacity
+					backgroundOpacity,
+					imgClose
 				);
 				
 				jQuery('#data').addClass('show');
 				
 			}
 			
-		});
-		
-		jQuery('#backgroundPopup').click(function() {
-			
-				jQuery('#data').removeClass('show');
-				jQuery('.popuptext').fadeOut();
-		
 		});
 		
 		jQuery('.previewPopup').on('click', function() {
@@ -149,7 +150,7 @@ var borderWidth2;
 			heightPopup = arrayDataPopup[2].split('=');
 			heightPopup = parseInt($(window).height()) * parseInt(heightPopup[1]) / 100;
 			textColor = arrayDataPopup[3].split('=');
-			borderWidth2 = arrayDataPopup[4].split('=');
+			borderWidth = arrayDataPopup[4].split('=');
 			radius = arrayDataPopup[5].split('=');
 			borderColor = arrayDataPopup[6].split('=');
 			backgroundColor = arrayDataPopup[7].split('=');
@@ -159,12 +160,11 @@ var borderWidth2;
 			popupOpacity = arrayDataPopup[10].split('=');
 			popupOpacity = popupOpacity[1] / 100;
 			contents = arrayDataPopup[11].split('=');
-			borderWidth = 'border:' + borderWidth2[1] + 'px solid ' + borderColor[1] + ';';
-			radius = 'border-radius:' + radius[1] + 'px;';
 			
 			updatePopup(
-				borderWidth,
-				radius,
+				borderWidth[1],
+				borderColor[1],
+				radius[1],
 				widthPopup[1],
 				heightPopup,
 				colorPopup[1],
@@ -172,7 +172,8 @@ var borderWidth2;
 				textColor[1],
 				contents[1],
 				backgroundColor[1],
-				backgroundOpacity
+				backgroundOpacity,
+				imgClose
 			);
 
 		});
@@ -190,6 +191,7 @@ var borderWidth2;
 		
 		function updatePopup(
 			borderWidth,
+			borderColor,
 			radius,
 			widthPopup,
 			heightPopup,
@@ -198,26 +200,32 @@ var borderWidth2;
 			textColor,
 			contents,
 			backgroundColor,
-			backgroundOpacity
+			backgroundOpacity,
+			imgClose
 		) {
-			
-			contents = (decodeURIComponent(escape(window.atob(contents))));
-			console.log(contents);
-			jQuery('#data').attr('style', 
-				borderWidth + 
-				radius + 
-				'width:' + widthPopup + 
-				'%;height:' + heightPopup + 
-				'px; background-color:' + colorPopup + 
-				'; opacity:' + popupOpacity + 
-				'; color: ' + textColor
-			).fadeIn('slow').html(contents);
-			
-			jQuery('#backgroundPopup').attr('style', 
-				'background-color:' + backgroundColor + 
-				'; opacity:' + backgroundOpacity + 
-				'; z-index: 9999'
-			).fadeIn('slow');
+
+			template =  '<span id="closePopup">' +
+							'<img onclick="javascript:closePopup();" src="' + imgClose + '" class="closePopup" />' +
+							'<span id="contents-popup">' +
+								'<span id="backgroundPopup" class="popuptext" style="' + 
+									'opacity : ' + backgroundOpacity + ';' +
+									'background-color : ' + backgroundColor + '">' +
+								'</span>' +
+								'<div class="openPopup">' +
+									'<span class="popuptext" style="' +
+										'width: ' + widthPopup + '%;' +
+										'height: ' + heightPopup + 'px;' +
+										'border:'+ borderWidth + 'px solid ' + borderColor + '; ' +
+										'border-radius:' + radius + 'px; ' +
+										'background-color: ' + colorPopup + ';' +
+										'opacity: ' + popupOpacity + ';' +
+										'color: ' + textColor + ';" ' +
+										'id="data">' + window.atob(unescape(encodeURIComponent(contents))) +
+									'</span>' +
+								'</div>' +
+							'</span>' +
+						'</span>';	
+			$('body').append(template);
 			
 		}
 

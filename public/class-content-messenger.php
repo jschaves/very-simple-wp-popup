@@ -83,7 +83,7 @@ class Content_Messenger {
 					$content = str_replace( $filter[$a], $html[$a], $content );
 					$control++;
 				} else {
-					$content = str_replace( $filter[$a], '<p>' . $filter[$a] . ' ' .  __( 'This popup does not exist', 'very-simple-wp-popup' ) . '</p>', $content );
+					$content = str_replace( $filter[$a], '', $content );
 				}
 			}
 			return $content;

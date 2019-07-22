@@ -1,5 +1,5 @@
 /* Popup container - can be anything you want */
-.preview-popup {
+.preview-popup, .closePopup {
 	cursor:pointer; 
 	cursor: hand;
 }
@@ -40,9 +40,12 @@
 }
 
 /* Popup close */
-.close {
-    width: 10%;
-    margin-top: 46px;
+.closePopup {
+	width: 5%;
+	z-index: 99999;
+	position: fixed;
+	top: 40px;
+	left: 5px;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -70,7 +73,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 999;	
+  z-index: 9999;	
 }
 
 .ulPopup {

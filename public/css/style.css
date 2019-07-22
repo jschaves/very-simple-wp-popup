@@ -1,5 +1,5 @@
 /* class cursor pointer  */
-.viewPopup, .box-popups, .close {
+.viewPopup, .box-popups, .closePopup {
 	cursor:pointer; 
 	cursor: hand;
 }
@@ -11,7 +11,7 @@
   text-align: center;
   padding: 8px 0;
   position: absolute;
-  z-index: 999999999;
+  z-index: 999;
   bottom: 125%;
   left: 50%;
   margin-left: -80px;
@@ -20,7 +20,7 @@
 /* The popup data */
 #data {
 	top: 10%;
-	z-index: 999999;
+	z-index: 9999;
 	width: 10%;
 	position: fixed;
 	margin: 0;
@@ -33,11 +33,12 @@
 }
 
 /* Popup close */
-.close {
-    width: 7%;
-    margin-top: 3%;
-	margin-right: 10px;
-	float: right;
+.closePopup {
+	width: 5%;
+	z-index: 99999;
+	position: fixed;
+	top: 10px;
+	left: 5px;
 }
 
 /* background popup */
@@ -48,7 +49,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 99999;	
+  z-index: 999;	
 }
 
 /* status popup */

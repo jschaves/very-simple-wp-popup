@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
 					<p>
 						<label><?php echo  _e( 'Border Width', 'very-simple-wp-popup' ); ?></label>
 						<br />
-						<input style="width:65px" type="number" name="borderWidth" id="borderWidth" min="0" max="100" value="1" /> px
+						<input style="width:65px" type="number" name="borderWidth" id="borderWidth" min="0" max="100" value="0" /> px
 					</p>
 					<p>
 						<label><?php echo  _e( 'Type of Border', 'very-simple-wp-popup' ); ?></label>
@@ -55,12 +55,12 @@ if ( ! defined( 'WPINC' ) ) {
 					<p id="radius" style="display:none">
 						<label><?php _e( 'Border Radio', 'very-simple-wp-popup' ); ?></label>
 						<br />
-						<input style="width:65px" type="number" name="radius" id="radiusPopup" min="0" max="100" value="5" /> px
+						<input style="width:65px" type="number" name="radius" id="radiusPopup" min="0" max="100" value="0" /> px
 					</p>
 					<p>
 						<label><?php _e( 'Border Color', 'very-simple-wp-popup' ); ?></label>
 						<br />
-						<input name="borderColor" id="borderColor" type="color" value="#838383" /> <span id="borderHexColor">#838383</span>
+						<input name="borderColor" id="borderColor" type="color" value="#838383" /> <span id="borderHexColor"></span>
 					</p>
 				</span>
 				<p>
@@ -96,12 +96,7 @@ if ( ! defined( 'WPINC' ) ) {
         ?>
     </form>
 </div>
-<span id="backgroundPopup" class="popuptext" style="display:none"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>../img/close.png" class="close" /></span>
-<br />
-<a class="preview-popup"><?php _e( 'Preview' ); ?></a>
-<div class="openPopup">
-	<span class="popuptext" style="display:none" id="data"></span>
-</div>
+<a class="preview-popup" imgclose="<?php echo plugin_dir_url( __FILE__ ) . '../img/close.png'; ?>"><?php _e( 'Preview' ); ?></a>
 <br />
 <br />
 <h3><?php _e( 'Saved Popups', 'very-simple-wp-popup' ); ?></h3>
