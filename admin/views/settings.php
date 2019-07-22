@@ -76,12 +76,12 @@ if ( ! defined( 'WPINC' ) ) {
 				<p>
 					<label><?php _e( 'Background Opacity', 'very-simple-wp-popup' ); ?></label>
 					<br />
-					<input name="backgroundOpacity" style="width:300px" id="backgroundOpacity" type="range" min="0" max="100" value="70" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="backgroundHexColorOpacity">1</span>
+					<input name="backgroundOpacity" style="width:300px" id="backgroundOpacity" type="range" min="2" max="100" value="70" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="backgroundHexColorOpacity">1</span>
 				</p>
 				<p>
 					<label><?php _e( 'Opacity of the Popup Background', 'very-simple-wp-popup' ); ?></label>
 					<br />
-					<input name="popupOpacity" style="width:300px" id="popupOpacity" type="range" min="0" max="100" value="100" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="popupHexColorOpacity">1</span>
+					<input name="popupOpacity" style="width:300px" id="popupOpacity" type="range" min="2" max="100" value="100" /> <?php _e( 'Opacity', 'very-simple-wp-popup' ); ?> <span id="popupHexColorOpacity">1</span>
 				</p>
 				<p>
 					<label><?php _e( 'Content' ); ?></label>
