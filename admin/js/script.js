@@ -242,7 +242,23 @@ var template;
 				jQuery('#backgroundHexColor').html(backgroundColor);
 				jQuery('#width').val(widthPopup);
 				jQuery('#height').val(heightPopup);
+				if(borderWidth == 0) {
+					jQuery('#selectBorder').val(0);
+					jQuery('#bd').fadeOut();
+				} else {
+					jQuery('#selectBorder').val(1);
+					jQuery('#bd').fadeIn();
+				}
+				if(radius == 0) {
+					jQuery('#type').val(0);
+					jQuery('#radius').fadeOut();
+				} else {
+					jQuery('#type').val(1);
+					jQuery('#radius').fadeIn();
+				}
+				console.log('borderWidth:' + borderWidth);
 				jQuery('#borderWidth').val(borderWidth);
+				console.log('Radio:' + radius);
 				jQuery('#radiusPopup').val(radius);
 				jQuery('#borderColor').val(borderColor);
 				jQuery('#borderHexColor').html(borderColor);
