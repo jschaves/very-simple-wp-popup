@@ -1,21 +1,28 @@
+"use strict";
 var backgroundOpacity;
 var backgroundColor;
 var template;
 var idPopup;
-var template;
 var totalPopups;
-var classBox;
 var nPopup;
-var openNext;
-var idNext;
-var actualUrl;
-
+var idNext = 0;
+var presentUrl;
+var widthPopup;
+var heightPopup;
+var borderRadius;
+var backgroundColorPopup;
+var opacityPopup;
+var colorPopup;
+var borderPopup;
+var borderColorPopup;
+var contentsPopup;
+//popup close
 var closePopup = function() {
 	
 	jQuery('#closePopup').remove();
 	
 };
-
+//next popup
 var openNextPopup =	function(idNext) {
 
 	jQuery('#contents-popup').remove();
@@ -27,7 +34,7 @@ var openNextPopup =	function(idNext) {
 (function($) {
 	
 	jQuery(document).ready(function() {
-		
+		//open popup
 		jQuery('.viewPopup').click(function() {
 			
 			totalPopups = jQuery('.viewPopup').length;
@@ -44,10 +51,10 @@ var openNextPopup =	function(idNext) {
 			borderColorPopup = jQuery(this).attr('border-color-popup');
 			contentsPopup = jQuery(this).attr('contents-popup');
 			nPopup = jQuery(this).attr('n-popup');
-			actualUrl =  jQuery(this).attr('actual-url');
-			
+			presentUrl =  jQuery(this).attr('actual-url');
+			//html popup
 			template =  '<span id="closePopup">' +
-							'<img onclick="javascript:closePopup();" src="' + actualUrl + '../public/img/close.png" class="closePopup" />' +
+							'<img onclick="javascript:closePopup();" src="' + presentUrl + '../public/img/close.png" class="closePopup" />' +
 							'<span id="contents-popup">' +
 								'<span id="backgroundPopup" class="popuptext" style="' +
 									'opacity : ' + backgroundOpacity + '; ' +
@@ -64,25 +71,25 @@ var openNextPopup =	function(idNext) {
 										'color: ' + colorPopup + ';" ' +
 										'id="data">' + decodeURIComponent(escape(window.atob(contentsPopup))) +
 									'</span>';
-								
+					//total popups			
 					if(totalPopups > 1) {
-
+						//+ 1 popup
 						if(nPopup > 1) {
 							
 							idNext = parseInt(nPopup) - parseInt(1);
 							
 							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-left" >' +
-											'<li><img class="imgPopup" src="' + actualUrl + '../public/img/left.png" /></li>' +
+											'<li><img class="imgPopup" src="' + presentUrl + '../public/img/left.png" /></li>' +
 										'</ul>'; 
 										
 						}
-						
+						//into popups
 						if(nPopup < totalPopups) {
 						
 							idNext = parseInt(nPopup) + parseInt(1);
 							
 							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-right">' +
-											'<li><img class="imgPopup" src="' + actualUrl + '../public/img/right.png" /></li>' +
+											'<li><img class="imgPopup" src="' + presentUrl + '../public/img/right.png" /></li>' +
 										'</ul>';
 										
 						}

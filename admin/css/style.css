@@ -48,13 +48,6 @@
 	left: 5px;
 }
 
-/* Toggle this class - hide and show the popup */
-.openPopup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
@@ -76,17 +69,6 @@
   z-index: 9999;	
 }
 
-.ulPopup {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.ulPopup > li {
-  float: left;
-}
-
 .formPopup > p.submit {
     display: contents;
 }
@@ -94,7 +76,20 @@
 #listPopup {
 	height: 600px;
 	overflow: auto;
-	width: 99%;
+	width: auto;
 	border: 1px solid;
 	padding: 10px;
+}
+
+table.ulPopup {
+	border: 1px solid gray;
+}
+
+td.previewPopup {
+	padding: 16px;
+	width: 100%;
+}
+
+.helpPopup {
+	color: red;
 }
