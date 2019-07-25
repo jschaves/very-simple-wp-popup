@@ -117,13 +117,6 @@ if ( ! defined( 'WPINC' ) ) {
 				$title = $idPopup[12];
 ?>
 				<table CELLSPACING='0' class="ulPopup">
-					<colgroup>
-						<col style="width: 50%"/>
-						<col style="width: 12%"/>
-						<col style="width: 12%"/>
-						<col style="width: 12%"/>
-						<col style="width: 12%"/>
-					</colgroup>
 					<tr>
 						<td class="previewPopup">
 							[<?php echo $idPopup[0] . ' ' . $title; ?>
@@ -131,6 +124,9 @@ if ( ! defined( 'WPINC' ) ) {
 						<td class="array-data-popup">
 							<span class="viewPopup" id="<?php echo $deleteEditId[1]; ?>" viewPopup="<?php echo str_replace( array( '[', ']' ), array( '', '' ), $value ); ?>"></span>
 							<input type="submit" class="button button-primary" value="<?php echo __( 'View' ); ?>" />
+						</td>
+						<td>
+						
 						</td>
 						<td>
 							<form class="formPopup" method="post" autocomplete="off" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
@@ -142,7 +138,13 @@ if ( ! defined( 'WPINC' ) ) {
 							</form>
 						</td>
 						<td>
+						
+						</td>
+						<td>
 							<input type="submit" edit="<?php echo $deleteEditId[1]; ?>" class="button button-primary edit editpopup" value="<?php _e( 'Edit' ); ?>" />
+						</td>
+						<td>
+						
 						</td>
 						<td>
 							<input class="copypopup" type="submit" copy="[<?php echo $idPopup[0] . ' ' . $title; ?>" class="button button-primary copy" value="<?php echo _e( 'Copy' ); ?> " />

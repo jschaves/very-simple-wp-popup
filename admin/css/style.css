@@ -90,6 +90,27 @@ td.previewPopup {
 	width: 100%;
 }
 
+table.ulPopup td {
+	min-width: 5px;	
+}
+
 .helpPopup {
 	color: red;
+}
+
+@media screen and (max-width: 600px) {
+   table.ulPopup tr td:first-child {
+	   font-size: 1.1em;
+	   padding: 0px;
+   }
+   table.ulPopup td {
+	   display: block;
+	   text-align:center;
+	   padding: 0px;
+   }
+   table.ulPopup td:before {
+	   content: attr(data-th);
+	   display: block;
+	   text-align:center;
+   }
 }
