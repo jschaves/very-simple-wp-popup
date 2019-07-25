@@ -35,6 +35,8 @@ var template;
 			} else if(jQuery(this).val() == 0) {
 				
 				jQuery('#bd').fadeOut('slow');
+				jQuery('#borderWidth').val(0);
+				jQuery('#radiusPopup').val(0);
 				
 			}
 			
@@ -49,6 +51,7 @@ var template;
 			} else if(jQuery(this).val() == 0) {
 				
 				jQuery('#radius').fadeOut('slow');
+				jQuery('#radiusPopup').val(0);
 				
 			}
 			
@@ -244,6 +247,9 @@ var template;
 				jQuery('#height').val(heightPopup);
 				if(borderWidth == 0) {
 					jQuery('#selectBorder').val(0);
+					jQuery('#borderWidth').val(0);
+					jQuery('#radiusPopup').val(0);
+					jQuery('#type').val(0);
 					jQuery('#bd').fadeOut();
 				} else {
 					jQuery('#selectBorder').val(1);
@@ -251,6 +257,7 @@ var template;
 				}
 				if(radius == 0) {
 					jQuery('#type').val(0);
+					jQuery('#radiusPopup').val(0);
 					jQuery('#radius').fadeOut();
 				} else {
 					jQuery('#type').val(1);

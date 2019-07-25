@@ -42,11 +42,13 @@ function admin_style() {
 	wp_enqueue_style( 'admin-styles', plugin_dir_url( __FILE__ ) . 'admin/css/style.css' );
 }
 add_action('admin_enqueue_scripts', 'admin_style');
-//include js footer admin
+// Register Script
 function admin_footer_js() {
-	echo '<script src="' . plugin_dir_url( __FILE__ ) . 'admin/js/script.js" type="text/javascript"></script>';
+	wp_register_script( 'vswpp-js', plugin_dir_url( __FILE__ ) . 'admin/js/script.js', array( 'jquery' ), '1', true );
+	wp_enqueue_script( 'vswpp-js' );
 }
-add_action( 'in_admin_footer', 'admin_footer_js' );
+// Hook into the 'admin_enqueue_scripts' action
+add_action( 'admin_enqueue_scripts', 'admin_footer_js' );
 // Include the shared and public dependencies.
 include_once( plugin_dir_path( __FILE__ ) . 'shared/vswpp-class-deserializer.php' );
 include_once( plugin_dir_path( __FILE__ ) . 'public/vswpp-class-content-messenger.php' );
