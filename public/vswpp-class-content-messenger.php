@@ -48,9 +48,10 @@ class VSWPP_Content_Messenger {
 				$filter[$a] = $ouputs[0][$a][0];
 				$values[$a] = esc_attr( $this->deserializer->get_filter( 'very_simple_wp_popup_' . $explodeId[0] ) );
 			}
-
+			
+			$control = 1;
 			for( $a = 0; $a < count( $values ); $a++ ) {
-				$control = $a + 1;
+
 				if( !empty( $values[$a] ) ) { 
 					$stylePopup = explode( ',', $values[$a] );
 					$id = explode( '=', $stylePopup[0] );
@@ -85,6 +86,7 @@ class VSWPP_Content_Messenger {
 									'title-popup="' . $title[1] . '">' . $title[1] .
 								'</a><p>';
 					$content = str_replace( $filter[$a], $html[$a], $content );
+					$control++;
 				} else {
 					$content = str_replace( $filter[$a], '', $content );
 				}
