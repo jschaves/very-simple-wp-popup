@@ -6,7 +6,7 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 <div class="wrap">
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-	<h3 class="helpPopup"></h3>
+	<h3 class="helpPopup" style="display:none"><?php esc_html_e( 'The popup data was inserted in the form. Make the changes and then save the form', 'very-simple-wp-popup' ); ?></h3>
     <form method="post" autocomplete="off" id="addPopup" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
         <div id="universal-message-container">
             <h2><?php echo  esc_html_e( 'Popup Configurator', 'very-simple-wp-popup' ); ?></h2>
@@ -98,7 +98,7 @@ if ( ! defined( 'WPINC' ) ) {
         ?>
     </form>
 </div>
-<a id="link-data-popup" class="preview-popup" alertpopup="<?php esc_html_e( 'The popup data was inserted in the form. Make the changes and then save the form' ); ?>" imgclose="<?php echo plugin_dir_url( __FILE__ ) . '../img/close.png'; ?>"><?php esc_html_e( 'Preview' ); ?></a>
+<a id="link-data-popup" class="preview-popup" imgclose="<?php echo plugin_dir_url( __FILE__ ) . '../img/close.png'; ?>"><?php esc_html_e( 'Preview' ); ?></a>
 <br />
 <br />
 <h3><?php esc_html_e( 'Saved Popups', 'very-simple-wp-popup' ); ?></h3>

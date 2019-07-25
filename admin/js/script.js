@@ -155,7 +155,7 @@ var template;
 			recoverDataPopup(arrayDataPopup, 'view');
 
 		});
-		//copy shortcode
+		//copy code
 		jQuery('.copypopup').on('click', function() {
 			
 			var aux = document.createElement('input');
@@ -253,7 +253,7 @@ var template;
 				jQuery('#textColor').val(textColor);
 				jQuery('#textHexColor').html(textColor);
 				jQuery('#contents').val(decodeURIComponent(escape(window.atob(contents))));
-				jQuery('.helpPopup').html(jQuery('#link-data-popup').attr('alertpopup'));
+				jQuery('.helpPopup').fadeIn('slow');
 				jQuery(window).scrollTop(0);
 
 			}
