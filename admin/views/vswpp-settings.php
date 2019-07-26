@@ -5,6 +5,23 @@ if ( ! defined( 'WPINC' ) ) {
 }
 ?>
 <div class="wrap">
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+		<!-- Identify your business so that you can collect the payments. -->
+		<input type="hidden" name="business" value="juan.cha63@gmail.com">
+
+		<!-- Specify a Donate button. -->
+		<input type="hidden" name="cmd" value="_donations">
+
+		<!-- Specify details about the contribution -->
+		<input type="hidden" name="item_name" value="Very Sinple WordPress Popup (WordPress plugin)">
+		<input type="hidden" name="currency_code" value="EUR">
+
+		<!-- Display the payment button. -->
+		<input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate">
+		<img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+	</form>
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 	<h3 class="helpPopup" style="display:none"><?php esc_html_e( 'The popup data was inserted in the form. Make the changes and then save the form', 'very-simple-wp-popup' ); ?></h3>
     <form method="post" autocomplete="off" id="addPopup" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">

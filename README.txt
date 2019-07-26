@@ -1,10 +1,12 @@
 === Very Simple WordPress Popup ===
 Contributors: jchaves
+Version:	1.0.0
 Tags: popup, pop-up
-Stable tag: 1.0.0
+Stable tag: trunk
 Requires at least: 4.4
 Tested up to: 5.2
 License: GPLv2 or later
+Donate link: https://www.paypal.me/jschaves
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Very Simple WordPress Popup 
