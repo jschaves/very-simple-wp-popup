@@ -30,4 +30,11 @@ Installation for General Use
 * Upload the Very Simple WordPress Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
 * In a post or page use the shortcode `[vswppopup ID=xxxxxxxxxxx title=xxxxxxxxxxxx]` to create a popup link.
 
+== Screenshots ==
+
+1. screenshot-1.jpg
+2. screenshot-3.jpg
+1. screenshot-3.jpg
+1. screenshot-4.jpg
+
 == Changelog ==
