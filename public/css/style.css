@@ -20,7 +20,7 @@
 /* The popup data */
 #data {
 	top: 10%;
-	z-index: 9999;
+	z-index: 99999;
 	width: 10%;
 	position: fixed;
 	margin: 0;
