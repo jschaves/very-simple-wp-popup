@@ -68,7 +68,7 @@ class VSWPP_Content_Messenger {
 					$contents = explode( '=', $stylePopup[11] );
 					$title = explode( '=', $stylePopup[12] );
 					
-					$html[$a] = '<p><a class="viewPopup" ' .
+					$html[$a] = '<p><a class="vswpp-view-popup" ' .
 									'n-popup="'  . $control . '" ' .
 									'id-popup="'  . $id[1] . '" ' .
 									'bc="' . $backgroundColor[1] . '" ' .

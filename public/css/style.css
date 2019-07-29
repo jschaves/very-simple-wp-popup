@@ -1,11 +1,11 @@
 /* class cursor pointer  */
-.viewPopup, .box-popups, .closePopup {
+.vswpp-view-popup, .vswpp-box-popups, .vswpp-close-popup {
 	cursor:pointer; 
 	cursor: hand;
 }
 
 /* The open popup */
-.openPopup .popuptext {
+.vswpp-open-popup .vswpp-popup-text {
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -18,7 +18,7 @@
 }
 
 /* The popup data */
-#data {
+#vswpp-data {
 	top: 10%;
 	z-index: 99999;
 	width: 10%;
@@ -33,7 +33,7 @@
 }
 
 /* Popup close */
-.closePopup {
+.vswpp-close-popup {
 	width: 5%;
 	z-index: 99999;
 	position: fixed;
@@ -42,7 +42,7 @@
 }
 
 /* background popup */
-#backgroundPopup {
+#vswpp-background-popup {
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -53,13 +53,13 @@
 }
 
 /* status popup */
-.box-popups {
+.vswpp-box-popups {
 	height: 25px;
 	width: 1%;
 	box-sizing: content-box;
 }
 
-#next-popups-left {
+#vswpp-next-popups-left {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
@@ -74,7 +74,7 @@
 	transform: translateX(-50%);
 }
 
-#next-popups-right {
+#vswpp-next-popups-right {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0 0 0 30px;
@@ -89,7 +89,7 @@
 	transform: translateX(-50%);
 }
 
-.img-popup {
+.vswpp-img-popup {
   max-width: 100%;
   height: auto
 }

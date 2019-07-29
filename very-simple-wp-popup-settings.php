@@ -38,27 +38,27 @@ foreach( glob( plugin_dir_path( __FILE__ ) . 'admin/*.php' ) as $file ) {
 add_action('plugins_loaded', 'very_simple_wp_popup_menu');
 
 // Update CSS within in Admin
-function admin_style() {
+function vswpp_admin_style() {
 	wp_enqueue_style( 'admin-styles', plugin_dir_url( __FILE__ ) . 'admin/css/style.css' );
 }
-add_action('admin_enqueue_scripts', 'admin_style');
+add_action('admin_enqueue_scripts', 'vswpp_admin_style');
 // Register Script
-function admin_footer_js() {
+function vswpp_admin_footer_js() {
 	wp_register_script( 'vswpp-js', plugin_dir_url( __FILE__ ) . 'admin/js/script.js', array( 'jquery' ), '1', true );
 	wp_enqueue_script( 'vswpp-js' );
 }
 // Hook into the 'admin_enqueue_scripts' action
-add_action( 'admin_enqueue_scripts', 'admin_footer_js' );
+add_action( 'admin_enqueue_scripts', 'vswpp_admin_footer_js' );
 // Include the shared and public dependencies.
 include_once( plugin_dir_path( __FILE__ ) . 'shared/vswpp-class-deserializer.php' );
 include_once( plugin_dir_path( __FILE__ ) . 'public/vswpp-class-content-messenger.php' );
 //add languages 
-function add_languages() {
+function vswpp_add_languages() {
 	load_plugin_textdomain( 'very-simple-wp-popup', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
-add_action( 'plugins_loaded', 'add_languages' );
+add_action( 'plugins_loaded', 'vswpp_add_languages' );
 //add iframe to popup
-function custom_wpkses_post_tags( $tags, $context ) {
+function vswpp_custom_wpkses_post_tags( $tags, $context ) {
 	if ( 'post' === $context ) {
 		$tags['iframe'] = array(
 			'src'             => true,
@@ -70,7 +70,7 @@ function custom_wpkses_post_tags( $tags, $context ) {
 	}
 	return $tags;
 }
-add_filter( 'wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2 );
+add_filter( 'wp_kses_allowed_html', 'vswpp_custom_wpkses_post_tags', 10, 2 );
 /**
  * Starts the plugin.
  *

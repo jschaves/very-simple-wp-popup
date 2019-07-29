@@ -1,9 +1,9 @@
 /* Popup container - can be anything you want */
-.preview-popup, .closePopup {
+.vswpp-preview-popup, .vswpp-close-popup {
 	cursor:pointer; 
 	cursor: hand;
 }
-.openPopup {
+.vswpp-open-popup {
   display: inline-block;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -13,7 +13,7 @@
 }
 
 /* The actual popup */
-.openPopup .popuptext {
+.vswpp-open-popup .vswpp-popup-text {
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -25,7 +25,7 @@
   margin-left: -80px;
 }
 
-#data {
+#vswpp-data {
 	top:10%;
 	z-index:99999;
 	width:10%;
@@ -38,9 +38,8 @@
 	transform: translateX(-50%);
 	word-wrap: break-word;
 }
-
 /* Popup close */
-.closePopup {
+.vswpp-close-popup {
 	width: 5%;
 	z-index: 99999;
 	position: fixed;
@@ -48,18 +47,7 @@
 	left: 5px;
 }
 
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-
-#backgroundPopup {
+#vswpp-background-popup {
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -69,11 +57,11 @@
   z-index: 9999;	
 }
 
-.formPopup > p.submit {
+.vswpp-form-popup > p.submit {
     display: contents;
 }
 
-#listPopup {
+#vswpp-list-popup {
 	height: 600px;
 	overflow: auto;
 	width: auto;
@@ -81,34 +69,34 @@
 	padding: 10px;
 }
 
-table.ulPopup {
+table.vswpp-ul-popup {
 	border: 1px solid gray;
 }
 
-td.previewPopup {
+td.vswpp-preview-popup {
 	padding: 16px;
 	width: 100%;
 }
 
-table.ulPopup td {
+table.vswpp-ul-popup td {
 	min-width: 5px;	
 }
 
-.helpPopup {
+.vswpp-help-popup {
 	color: red;
 }
 
 @media screen and (max-width: 600px) {
-   table.ulPopup tr td:first-child {
+   table.vswpp-ul-popup tr td:first-child {
 	   font-size: 1.1em;
 	   padding: 0px;
    }
-   table.ulPopup td {
+   table.vswpp-ul-popup td {
 	   display: block;
 	   text-align:center;
 	   padding: 0px;
    }
-   table.ulPopup td:before {
+   table.vswpp-ul-popup td:before {
 	   content: attr(data-th);
 	   display: block;
 	   text-align:center;

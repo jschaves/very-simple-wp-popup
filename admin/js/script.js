@@ -1,165 +1,158 @@
 "use strict";
-var popupOpacity;
-var colorPopup;
-var widthPopup;
-var heightPopup;
-var textColor;
-var borderWidth;
-var radius;
-var contents;
-var backgroundOpacity;
-var backgroundColor;
-var idPopup;
-var arrayDataPopup;
-var borderColor;
-var imgClose = jQuery('.preview-popup').attr('imgclose');
+var vswppPopupOpacity;
+var vswppColorPopup;
+var vswppWidthPopup;
+var vswppHeightPopup;
+var vswppTextColor;
+var vswppBorderWidth;
+var vswppRadius;
+var vswppContents;
+var vswppBackgroundOpacity;
+var vswppBackgroundColor;
+var vswppIdPopup;
+var vswppArrayDataPopup;
+var vswppBorderColor;
+var vswppImgClose = jQuery('.vswpp-preview-popup').attr('imgclose');
 var closePopup = function() {
-	jQuery('#closePopup').remove();
+	jQuery('#vswpp-close-popup').remove();
 };
-var idEdit;
-var dataPopup;
-var titlePopup;
-var idPopupEdit = 0;
-var template;
+var vswppDataPopup;
+var vswppTitlePopup;
+var vswppIdPopupEdit;
+var vswppTemplate;
 
 (function($) {
 	
 	jQuery(document).ready(function() {
 		//is border
-		jQuery('select#selectBorder').change(function() {
+		jQuery('select#vswpp-select-border').change(function() {
 			
 			if(jQuery(this).val() == 1) {
 				
-				jQuery('#bd').show('slow');
+				jQuery('#vswpp-bd').show('slow');
 				
 			} else if(jQuery(this).val() == 0) {
 				
-				jQuery('#bd').fadeOut('slow');
-				jQuery('#borderWidth').val(0);
-				jQuery('#radiusPopup').val(0);
+				jQuery('#vswpp-bd').fadeOut('slow');
+				jQuery('#vswpp-border-width').val(0);
+				jQuery('#vswpp-radius-popup').val(0);
 				
 			}
 			
 		});
 		//type of border
-		jQuery('select#type').change(function() {
+		jQuery('select#vswpp-type').change(function() {
 			
 			if(jQuery(this).val() == 1) {
 				
-				jQuery('#radius').show('slow');
+				jQuery('#vswpp-radius').show('slow');
 				
 			} else if(jQuery(this).val() == 0) {
 				
-				jQuery('#radius').fadeOut('slow');
-				jQuery('#radiusPopup').val(0);
+				jQuery('#vswpp-radius').fadeOut('slow');
+				jQuery('#vswpp-radius-popup').val(0);
 				
 			}
 			
 		});
 		//border color
-		jQuery('#borderColor').change(function() {
+		jQuery('#vswpp-border-color').change(function() {
 			
-			jQuery('#borderHexColor').html(jQuery(this).val());
+			jQuery('#border-hex-color').html(jQuery(this).val());
 			
 		});
 		//text color
-		jQuery('#textColor').change(function() {
+		jQuery('#vswpp-text-color').change(function() {
 			
-			jQuery('#textHexColor').html(jQuery(this).val());
+			jQuery('#vswpp-text-hex-color').html(jQuery(this).val());
 			
 		});
 		//background color
-		jQuery('#backgroundColor').change(function() {
+		jQuery('#vswpp-background-color').change(function() {
 			
-			jQuery('#backgroundHexColor').html(jQuery(this).val());
+			jQuery('#vswpp-background-hex-color').html(jQuery(this).val());
 			
 		});
 		//background color popup
-		jQuery('#backgroundColorPopup').change(function() {
+		jQuery('#vswpp-background-color-popup').change(function() {
 			
-			jQuery('#backgroundHexColorPopup').html(jQuery(this).val());
+			jQuery('#vswpp-background-hex-color-popup').html(jQuery(this).val());
 			
 		});
 		//background opacity
-		jQuery('#backgroundOpacity').change(function() {
+		jQuery('#vswpp-background-opacity').change(function() {
 			
-			jQuery('#backgroundOpacityValue').html(jQuery(this).val() / 100);
+			jQuery('#vswpp-background-opacity-value').html(jQuery(this).val() / 100);
 			
 		});
 		//background opacity popup
-		jQuery('#popupOpacity').change(function() {
+		jQuery('#vswpp-popup-opacity').change(function() {
 			
-			jQuery('#popupOpacityValue').html(jQuery(this).val() / 100);
+			jQuery('#vswpp-popup-opacity-value').html(jQuery(this).val() / 100);
 			
 		});
 		//preview
-		jQuery('.preview-popup').click(function() {
+		jQuery('.vswpp-preview-popup').click(function() {
 
-			if(!jQuery('#data').hasClass('show')) {
+			vswppPopupOpacity = jQuery('#vswpp-popup-opacity').val();
+			vswppColorPopup = jQuery('#vswpp-background-color-popup').val();
+			vswppWidthPopup = jQuery('#vswpp-width').val();
+			vswppHeightPopup = jQuery('#vswpp-height').val();
+			vswppTextColor =  jQuery('#vswpp-text-color').val();
+			if(jQuery('#vswpp-select-border').val() == 1) {
 
-				popupOpacity = jQuery('#popupOpacity').val();
-				colorPopup = jQuery('#backgroundColorPopup').val();
-				widthPopup = jQuery('#width').val();
-				heightPopup = jQuery('#height').val();
-				textColor =  jQuery('#textColor').val();
-				if(jQuery('#selectBorder').val() == 1) {
+				vswppBorderWidth = jQuery('#vswpp-border-width').val();
+				vswppBorderColor = jQuery('#vswpp-border-color').val();
+		
+			} else {
 
-					borderWidth = jQuery('#borderWidth').val();
-					borderColor = jQuery('#borderColor').val();
-			
-				} else {
+				vswppBorderWidth = '';
+				vswppBorderColor = '';
+			}
 
-					borderWidth = '';
-					borderColor = '';
-				}
-
-				if(jQuery('#type').val() == 1) {
-					
-					radius = jQuery('#radiusPopup').val();
-					
-				} else {
-					
-					radius = '';
-					
-				}
+			if(jQuery('#vswpp-type').val() == 1) {
 				
-				contents = window.btoa(unescape(encodeURIComponent(jQuery('#contents').val())));
-				backgroundOpacity = jQuery('#backgroundOpacity').val();
-				backgroundColor = jQuery('#backgroundColor').val();
-				titlePopup = jQuery('#title').val();
+				vswppRadius = jQuery('#vswpp-radius-popup').val();
 				
-				updatePopup(
-					borderWidth,
-					borderColor,
-					radius,
-					widthPopup,
-					heightPopup,
-					colorPopup,
-					popupOpacity,
-					textColor,
-					contents,
-					backgroundColor,
-					backgroundOpacity,
-					imgClose,
-					'view',
-					title
-				);
+			} else {
 				
-				jQuery('#data').addClass('show');
+				vswppRadius = '';
 				
 			}
 			
+			vswppContents = window.btoa(unescape(encodeURIComponent(jQuery('#vswpp-contents').val())));
+			vswppBackgroundOpacity = jQuery('#vswpp-background-opacity').val();
+			vswppBackgroundColor = jQuery('#vswpp-background-color').val();
+			vswppTitlePopup = jQuery('#vswpp-title').val();
+			
+			vswppUpdatePopup(
+				vswppBorderWidth,
+				vswppBorderColor,
+				vswppRadius,
+				vswppWidthPopup,
+				vswppHeightPopup,
+				vswppColorPopup,
+				vswppPopupOpacity,
+				vswppTextColor,
+				vswppContents,
+				vswppBackgroundColor,
+				vswppBackgroundOpacity,
+				vswppImgClose,
+				'view',
+				vswppTitlePopup
+			);
+
 		});
 		//preview all
-		jQuery('.array-data-popup').on('click', function() {
+		jQuery('.vswpp-array-data-popup').on('click', function() {
 			
-			idPopup = jQuery(this).find('span').attr('viewPopup');
-			arrayDataPopup = idPopup.split(',');
-			recoverDataPopup(arrayDataPopup, 'view');
+			vswppIdPopup = jQuery(this).find('span').attr('viewPopup');
+			vswppArrayDataPopup = vswppIdPopup.split(',');
+			vswppRecoverDataPopup(vswppArrayDataPopup, 'view');
 
 		});
 		//copy code
-		jQuery('.copypopup').on('click', function() {
+		jQuery('.vswpp-copy-popup').on('click', function() {
 			
 			var aux = document.createElement('input');
 			jQuery(aux).val(jQuery(this).attr('copy'));
@@ -170,161 +163,161 @@ var template;
 			
 		});
 		//edit popup
-		jQuery('.editpopup').on('click', function() {
+		jQuery('.vswpp-edit-popup').on('click', function() {
 			
-			dataPopup = jQuery(this).attr('edit');
-			arrayDataPopup = jQuery('#' + dataPopup).attr('viewpopup').split(',');
-			recoverDataPopup(arrayDataPopup, 'edit');
+			vswppDataPopup = jQuery(this).attr('edit');
+			vswppArrayDataPopup = jQuery('#' + vswppDataPopup).attr('viewpopup').split(',');
+			vswppRecoverDataPopup(vswppArrayDataPopup, 'edit');
 			
 		});
 		//view popup		
-		function updatePopup(
-			borderWidth,
-			borderColor,
-			radius,
-			widthPopup,
-			heightPopup,
-			colorPopup,
-			popupOpacity,
-			textColor,
-			contents,
-			backgroundColor,
-			backgroundOpacity,
-			imgClose,
+		function vswppUpdatePopup(
+			vswppBorderWidth,
+			vswppBorderColor,
+			vswppRadius,
+			vswppWidthPopup,
+			vswppHeightPopup,
+			vswppColorPopup,
+			vswppPopupOpacity,
+			vswppTextColor,
+			vswppContents,
+			vswppBackgroundColor,
+			vswppBackgroundOpacity,
+			vswppImgClose,
 			type,
 			title
 		) {
 			//popup type
 			if(type == 'view') {
 				//popup height
-				heightPopup = parseInt(jQuery(window).height()) * parseInt(heightPopup) / 100;
+				vswppHeightPopup = parseInt(jQuery(window).height()) * parseInt(vswppHeightPopup) / 100;
 				//html popup
-				template =  '<span id="closePopup">' +
-								'<img onclick="javascript:closePopup();" src="' + imgClose + '" class="closePopup" />' +
-								'<span id="contents-popup">' +
-									'<span id="backgroundPopup" class="popuptext" style="' + 
-										'opacity : ' + backgroundOpacity / 100 + ';' +
-										'background-color : ' + backgroundColor + '">' +
+				vswppTemplate =  '<span id="vswpp-close-popup">' +
+								'<img onclick="javascript:closePopup();" src="' + vswppImgClose + '" class="vswpp-close-popup" />' +
+								'<span id="vswpp-contents-popup">' +
+									'<span id="vswpp-background-popup" class="vswpp-popup-text" style="' + 
+										'opacity : ' + vswppBackgroundOpacity / 100 + ';' +
+										'background-color : ' + vswppBackgroundColor + '">' +
 									'</span>' +
-									'<div class="openPopup">' +
-										'<span class="popuptext" style="' +
-											'width: ' + widthPopup + '%;' +
-											'height: ' + heightPopup + 'px;' +
-											'border:'+ borderWidth + 'px solid ' + borderColor + '; ' +
-											'border-radius:' + radius + 'px; ' +
-											'background-color: ' + colorPopup + ';' +
-											'opacity: ' + popupOpacity / 100 + ';' +
-											'color: ' + textColor + ';" ' +
-											'id="data">' + decodeURIComponent(escape(window.atob(contents))) +
+									'<div class="vswpp-open-popup">' +
+										'<span class="vswpp-popup-text" style="' +
+											'width: ' + vswppWidthPopup + '%;' +
+											'height: ' + vswppHeightPopup + 'px;' +
+											'border:'+ vswppBorderWidth + 'px solid ' + vswppBorderColor + '; ' +
+											'border-radius:' + vswppRadius + 'px; ' +
+											'background-color: ' + vswppColorPopup + ';' +
+											'opacity: ' + vswppPopupOpacity / 100 + ';' +
+											'color: ' + vswppTextColor + ';" ' +
+											'id="vswpp-data">' + decodeURIComponent(escape(window.atob(vswppContents))) +
 										'</span>' +
 									'</div>' +
 								'</span>' +
-							'</span>';	
-				jQuery('body').append(template);
+							'</span>';
+							
+				jQuery('body').append(vswppTemplate);
 			//type edit	
 			} else if(type == 'edit') {
 				//con borde
-				if(borderWidth > 0) {
+				if(vswppBorderWidth > 0) {
 					
-					jQuery('#selectBorder').val(1);
-					jQuery('#bd').fadeIn();
+					jQuery('#vswpp-select-border').val(1);
+					jQuery('#vswpp-bd').fadeIn();
 					
 				}
 				//con radio
-				if(radius > 0) {
+				if(vswppRadius > 0) {
 					
-					jQuery('#type').val(1);
-					jQuery('#radius').fadeIn();
+					jQuery('#vswpp-type').val(1);
+					jQuery('#vswpp-radius').fadeIn();
 					
 				}
 				//estilos
-				jQuery('#title').val(title);
-				jQuery('#backgroundOpacity').val(backgroundOpacity);
-				jQuery('#backgroundOpacityValue').html(backgroundOpacity / 100);
-				jQuery('#backgroundColor').val(backgroundColor);
-				jQuery('#backgroundHexColor').html(backgroundColor);
-				jQuery('#width').val(widthPopup);
-				jQuery('#height').val(heightPopup);
-				if(borderWidth == 0) {
-					jQuery('#selectBorder').val(0);
-					jQuery('#borderWidth').val(0);
-					jQuery('#radiusPopup').val(0);
-					jQuery('#type').val(0);
-					jQuery('#bd').fadeOut();
+				jQuery('#vswpp-title').val(title);
+				jQuery('#vswpp-background-opacity').val(vswppBackgroundOpacity);
+				jQuery('#vswpp-background-opacity-value').html(vswppBackgroundOpacity / 100);
+				jQuery('#vswpp-background-color').val(vswppBackgroundColor);
+				jQuery('#background-hex-color').html(vswppBackgroundColor);
+				jQuery('#vswpp-width').val(vswppWidthPopup);
+				jQuery('#vswpp-height').val(vswppHeightPopup);
+				if(vswppBorderWidth == 0) {
+					jQuery('#vswpp-select-border').val(0);
+					jQuery('#vswpp-border-width').val(0);
+					jQuery('#vswpp-radius-popup').val(0);
+					jQuery('#vswpp-type').val(0);
+					jQuery('#vswpp-bd').fadeOut();
 				} else {
-					jQuery('#selectBorder').val(1);
-					jQuery('#bd').fadeIn();
+					jQuery('#vswpp-select-border').val(1);
+					jQuery('#vswpp-bd').fadeIn();
 				}
-				if(radius == 0) {
-					jQuery('#type').val(0);
-					jQuery('#radiusPopup').val(0);
-					jQuery('#radius').fadeOut();
+				if(vswppRadius == 0) {
+					jQuery('#vswpp-type').val(0);
+					jQuery('#vswpp-radius-popup').val(0);
+					jQuery('#vswpp-radius').fadeOut();
 				} else {
-					jQuery('#type').val(1);
-					jQuery('#radius').fadeIn();
+					jQuery('#vswpp-type').val(1);
+					jQuery('#vswpp-radius').fadeIn();
 				}
-				console.log('borderWidth:' + borderWidth);
-				jQuery('#borderWidth').val(borderWidth);
-				console.log('Radio:' + radius);
-				jQuery('#radiusPopup').val(radius);
-				jQuery('#borderColor').val(borderColor);
-				jQuery('#borderHexColor').html(borderColor);
-				jQuery('#backgroundColorPopup').val(colorPopup);
-				jQuery('#backgroundHexColorPopup').html(colorPopup);
-				jQuery('#popupOpacity').val(popupOpacity);
-				jQuery('#popupOpacityValue').html(popupOpacity / 100);
-				jQuery('#textColor').val(textColor);
-				jQuery('#textHexColor').html(textColor);
-				jQuery('#contents').val(decodeURIComponent(escape(window.atob(contents))));
-				jQuery('.helpPopup').fadeIn('slow');
+
+				jQuery('#vswpp-border-width').val(vswppBorderWidth);
+				jQuery('#vswpp-radius-popup').val(vswppRadius);
+				jQuery('#vswpp-border-color').val(vswppBorderColor);
+				jQuery('#border-hex-color').html(vswppBorderColor);
+				jQuery('#vswpp-background-color-popup').val(vswppColorPopup);
+				jQuery('#background-hex-color-popup').html(vswppColorPopup);
+				jQuery('#vswpp-popup-opacity').val(vswppPopupOpacity);
+				jQuery('#vswpp-popup-opacity-value').html(vswppPopupOpacity / 100);
+				jQuery('#vswpp-text-color').val(vswppTextColor);
+				jQuery('#text-hex-color').html(vswppTextColor);
+				jQuery('#vswpp-contents').val(decodeURIComponent(escape(window.atob(vswppContents))));
+				jQuery('.vswpp-help-popup').fadeIn('slow');
 				jQuery(window).scrollTop(0);
 
 			}
 			
 		}
 		//mostrar el popup
-		function recoverDataPopup(arrayDataPopup, type) {
+		function vswppRecoverDataPopup(vswppArrayDataPopup, type) {
 			//editar el popup
 			if(type == 'edit') {
 
-				idPopupEdit = arrayDataPopup[0].split('=');
-				idPopupEdit = idPopupEdit[1];
-				jQuery('#idpopupedit').val(idPopupEdit);
+				vswppIdPopupEdit = vswppArrayDataPopup[0].split('=');
+				vswppIdPopupEdit = vswppIdPopupEdit[1];
+				jQuery('#vswpp-id-popup-edit').val(vswppIdPopupEdit);
 			//ver el popup	
 			} else if(type == 'view') {
 				
-				jQuery('#idpopupedit').val('null');
+				jQuery('#vswpp-id-popup-edit').val('null');
 				
 			}
 			//estilos del popup
-			widthPopup = arrayDataPopup[1].split('=');
-			heightPopup = arrayDataPopup[2].split('=');
-			textColor = arrayDataPopup[3].split('=');
-			borderWidth = arrayDataPopup[4].split('=');
-			radius = arrayDataPopup[5].split('=');
-			borderColor = arrayDataPopup[6].split('=');
-			backgroundColor = arrayDataPopup[7].split('=');
-			colorPopup = arrayDataPopup[8].split('=');
-			backgroundOpacity = arrayDataPopup[9].split('=');
-			popupOpacity = arrayDataPopup[10].split('=');
-			contents = arrayDataPopup[11].split('=');
-			titlePopup = arrayDataPopup[12].split('=');
+			vswppWidthPopup = vswppArrayDataPopup[1].split('=');
+			vswppHeightPopup = vswppArrayDataPopup[2].split('=');
+			vswppTextColor = vswppArrayDataPopup[3].split('=');
+			vswppBorderWidth = vswppArrayDataPopup[4].split('=');
+			vswppRadius = vswppArrayDataPopup[5].split('=');
+			vswppBorderColor = vswppArrayDataPopup[6].split('=');
+			vswppBackgroundColor = vswppArrayDataPopup[7].split('=');
+			vswppColorPopup = vswppArrayDataPopup[8].split('=');
+			vswppBackgroundOpacity = vswppArrayDataPopup[9].split('=');
+			vswppPopupOpacity = vswppArrayDataPopup[10].split('=');
+			vswppContents = vswppArrayDataPopup[11].split('=');
+			vswppTitlePopup = vswppArrayDataPopup[12].split('=');
 			//ver el popup
-			updatePopup(
-				borderWidth[1],
-				borderColor[1],
-				radius[1],
-				widthPopup[1],
-				heightPopup[1],
-				colorPopup[1],
-				popupOpacity[1],
-				textColor[1],
-				contents[1],
-				backgroundColor[1],
-				backgroundOpacity[1],
-				imgClose,
+			vswppUpdatePopup(
+				vswppBorderWidth[1],
+				vswppBorderColor[1],
+				vswppRadius[1],
+				vswppWidthPopup[1],
+				vswppHeightPopup[1],
+				vswppColorPopup[1],
+				vswppPopupOpacity[1],
+				vswppTextColor[1],
+				vswppContents[1],
+				vswppBackgroundColor[1],
+				vswppBackgroundOpacity[1],
+				vswppImgClose,
 				type,
-				titlePopup[1]
+				vswppTitlePopup[1]
 			);
 			
 		}

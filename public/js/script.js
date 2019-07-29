@@ -1,110 +1,99 @@
 "use strict";
-var backgroundOpacity;
-var backgroundColor;
-var template;
-var idPopup;
-var totalPopups;
-var nPopup;
-var idNext = 0;
-var presentUrl;
-var widthPopup;
-var heightPopup;
-var borderRadius;
-var backgroundColorPopup;
-var opacityPopup;
-var colorPopup;
-var borderPopup;
-var borderColorPopup;
-var contentsPopup;
+var vswppBackgroundOpacity;
+var vswppBackgroundColor;
+var vswppTemplate;
+var vswppIdPopup;
+var vswppTotalPopups;
+var vswppNPopup;
+var vswppIdNext = 0;
+var vswppPresentUrl;
+var vswppWidthPopup;
+var vswppHeightPopup;
+var vswppBorderRadius;
+var vswppBackgroundColorPopup;
+var vswppOpacityPopup;
+var vswppColorPopup;
+var vswppBorderPopup;
+var vswppBorderColorPopup;
+var vswppContentsPopup;
 //popup close
-var closePopup = function() {
-	
-	jQuery('#closePopup').remove();
-	
+var vswppClosePopup = function() {
+	jQuery('#vswpp-close-popup').remove();
 };
 //next popup
-var openNextPopup =	function(idNext) {
-
-	jQuery('#contents-popup').remove();
-	jQuery('#close-popup').remove();
-	jQuery('a[n-popup=' + idNext + ']').click(); 
-			
+var vswppOpenNextPopup =	function(vswppIdNext) {
+	jQuery('#vswpp-contents-popup').remove();
+	jQuery('#vswpp-close-popup').remove();
+	jQuery('a[n-popup=' + vswppIdNext + ']').click(); 		
 };
-
 (function($) {
-	
 	jQuery(document).ready(function() {
 		//open popup
-		jQuery('.viewPopup').click(function() {
-			
-			totalPopups = jQuery('.viewPopup').length;
-			backgroundOpacity = jQuery(this).attr('bo');
-			backgroundColor = jQuery(this).attr('bc');
-			idPopup = jQuery(this).attr('id-popup');
-			widthPopup = jQuery(this).attr('width-popup');
-			heightPopup = parseInt($(window).height()) * parseInt(jQuery(this).attr('height-popup')) / 100;
-			borderRadius = jQuery(this).attr('border-radius-popup');
-			backgroundColorPopup = jQuery(this).attr('background-color-popup');
-			opacityPopup = jQuery(this).attr('opacity-popup');
-			colorPopup = jQuery(this).attr('color-popup');
-			borderPopup =  jQuery(this).attr('border-popup');
-			borderColorPopup = jQuery(this).attr('border-color-popup');
-			contentsPopup = jQuery(this).attr('contents-popup');
-			nPopup = jQuery(this).attr('n-popup');
-			presentUrl =  jQuery(this).attr('actual-url');
+		jQuery('.vswpp-view-popup').click(function() {
+			vswppTotalPopups = jQuery('.vswpp-view-popup').length;
+			vswppBackgroundOpacity = jQuery(this).attr('bo');
+			vswppBackgroundColor = jQuery(this).attr('bc');
+			vswppIdPopup = jQuery(this).attr('id-popup');
+			vswppWidthPopup = jQuery(this).attr('width-popup');
+			vswppHeightPopup = parseInt($(window).height()) * parseInt(jQuery(this).attr('height-popup')) / 100;
+			vswppBorderRadius = jQuery(this).attr('border-radius-popup');
+			vswppBackgroundColorPopup = jQuery(this).attr('background-color-popup');
+			vswppOpacityPopup = jQuery(this).attr('opacity-popup');
+			vswppColorPopup = jQuery(this).attr('color-popup');
+			vswppBorderPopup =  jQuery(this).attr('border-popup');
+			vswppBorderColorPopup = jQuery(this).attr('border-color-popup');
+			vswppContentsPopup = jQuery(this).attr('contents-popup');
+			vswppNPopup = jQuery(this).attr('n-popup');
+			vswppPresentUrl =  jQuery(this).attr('actual-url');
 			//html popup
-			template =  '<span id="closePopup">' +
-							'<img onclick="javascript:closePopup();" src="' + presentUrl + '../public/img/close.png" class="closePopup" />' +
-							'<span id="contents-popup">' +
-								'<span id="backgroundPopup" class="popuptext" style="' +
-									'opacity : ' + backgroundOpacity + '; ' +
-									'background-color : ' + backgroundColor + '">' +
+			vswppTemplate =  '<span id="vswpp-close-popup">' +
+							'<img onclick="javascript:vswppClosePopup();" src="' + vswppPresentUrl + '../public/img/close.png" class="vswpp-close-popup" />' +
+							'<span id="vswpp-contents-popup">' +
+								'<span id="vswpp-background-popup" class="vswpp-popup-text" style="' +
+									'opacity : ' + vswppBackgroundOpacity + '; ' +
+									'background-color : ' + vswppBackgroundColor + '">' +
 								'</span>' +
-								'<div class="openPopup">' +
-									'<span class="popuptext '  + idPopup + '" style="' +
-										'width: ' + widthPopup + '%;' +
-										'height: ' + heightPopup + 'px;' +
-										'border: ' + borderPopup + 'px solid ' + borderColorPopup + ';' +
-										'border-radius: ' + borderRadius + 'px;' +
-										'background-color: ' + backgroundColorPopup + ';' +
-										'opacity: ' + opacityPopup + ';' +
-										'color: ' + colorPopup + ';" ' +
-										'id="data">' + decodeURIComponent(escape(window.atob(contentsPopup))) +
+								'<div class="vswpp-open-popup">' +
+									'<span class="vswpp-popup-text '  + vswppIdPopup + '" style="' +
+										'width: ' + vswppWidthPopup + '%;' +
+										'height: ' + vswppHeightPopup + 'px;' +
+										'border: ' + vswppBorderPopup + 'px solid ' + vswppBorderColorPopup + ';' +
+										'border-radius: ' + vswppBorderRadius + 'px;' +
+										'background-color: ' + vswppBackgroundColorPopup + ';' +
+										'opacity: ' + vswppOpacityPopup + ';' +
+										'color: ' + vswppColorPopup + ';" ' +
+										'id="vswpp-data">' + decodeURIComponent(escape(window.atob(vswppContentsPopup))) +
 									'</span>';
 					//total popups			
-					if(totalPopups > 1) {
+					if(vswppTotalPopups > 1) {
 						//+ 1 popup
-						if(nPopup > 1) {
+						if(vswppNPopup > 1) {
 							
-							idNext = parseInt(nPopup) - parseInt(1);
+							vswppIdNext = parseInt(vswppNPopup) - parseInt(1);
 							
-							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-left" >' +
-											'<li><img class="imgPopup" src="' + presentUrl + '../public/img/left.png" /></li>' +
+							vswppTemplate += '<ul class="vswpp-box-popups" onclick="javascript:vswppClosePopup();vswppOpenNextPopup(' + vswppIdNext + ')" id="vswpp-next-popups-left" >' +
+											'<li><img class="vswpp-img-popup" src="' + vswppPresentUrl + '../public/img/left.png" /></li>' +
 										'</ul>'; 
 										
 						}
 						//into popups
-						if(nPopup < totalPopups) {
+						if(vswppNPopup < vswppTotalPopups) {
 						
-							idNext = parseInt(nPopup) + parseInt(1);
+							vswppIdNext = parseInt(vswppNPopup) + parseInt(1);
 							
-							template += '<ul class="box-popups" onclick="javascript:closePopup();openNextPopup(' + idNext + ')" id="next-popups-right">' +
-											'<li><img class="imgPopup" src="' + presentUrl + '../public/img/right.png" /></li>' +
+							vswppTemplate += '<ul class="vswpp-box-popups" onclick="javascript:vswppClosePopup();vswppOpenNextPopup(' + vswppIdNext + ')" id="vswpp-next-popups-right">' +
+											'<li><img class="vswpp-img-popup" src="' + vswppPresentUrl + '../public/img/right.png" /></li>' +
 										'</ul>';
 										
-						}
-									
+						}			
 					}
 								
-						template += '</div>' +
+						vswppTemplate += '</div>' +
 								'</span>' +
 							'</span>' +
 						'</span>';			
 				
-			$('body').append(template);
-			
+			$('body').append(vswppTemplate);
 		});
-
-	});
-	
+	});	
 })(jQuery);

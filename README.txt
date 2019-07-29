@@ -1,6 +1,6 @@
 === Very Simple WordPress Popup ===
 Contributors: jchaves
-Version:	1.0.0
+Version:	1.2
 Tags: popup, pop-up
 Stable tag: trunk
 Requires at least: 4.4
@@ -38,3 +38,6 @@ Installation for General Use
 1. screenshot-4.jpg
 
 == Changelog ==
+
+= 1.2.0 29.07.2019 =
+* Various **bug fixes**
