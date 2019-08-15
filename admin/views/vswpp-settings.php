@@ -107,6 +107,7 @@ if ( ! defined( 'WPINC' ) ) {
 					<textarea name="contents" rows="10" style="width:300px" id="vswpp-contents" cols="30" required ></textarea>
 				</p>
 				<input id="vswpp-id-popup-edit" type="hidden" name="edit" value="null" />
+				<input type="hidden" name="action" value="vswpp">
 			</div>
 		</div>
         <?php
@@ -148,6 +149,7 @@ if ( ! defined( 'WPINC' ) ) {
 						<td>
 							<form class="vswpp-form-popup" method="post" autocomplete="off" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
 								<input type="hidden" name="delete" value="<?php echo $deleteEditId[1]; ?>" />
+								<input type="hidden" name="action" value="vswpp">
 							<?php 
 								wp_nonce_field( 'settings-save', 'id-message' );
 								submit_button( __( 'Delete' ) );

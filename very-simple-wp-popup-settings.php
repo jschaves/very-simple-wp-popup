@@ -39,7 +39,7 @@ add_action('plugins_loaded', 'very_simple_wp_popup_menu');
 
 // Update CSS within in Admin
 function vswpp_admin_style() {
-	wp_enqueue_style( 'admin-styles', plugin_dir_url( __FILE__ ) . 'admin/css/style.css' );
+	wp_enqueue_style( 'vswpp-admin-styles', plugin_dir_url( __FILE__ ) . 'admin/css/style.css' );
 }
 add_action('admin_enqueue_scripts', 'vswpp_admin_style');
 // Register Script

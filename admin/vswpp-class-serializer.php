@@ -21,7 +21,7 @@ class VSWPP_Serializer {
 	* admin_post hook so that we can save our options to the database.
 	*/
     public function init() {
-        add_action( 'admin_post', array( $this, 'save' ) );
+        add_action( 'admin_post_vswpp', array( $this, 'save' ) );
     }
     /**
      * Validates the incoming nonce value, verifies the current user has
