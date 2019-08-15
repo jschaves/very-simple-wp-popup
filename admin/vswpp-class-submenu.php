@@ -42,7 +42,7 @@ class VSWPP_Submenu {
      */
     public function add_options_page() {
         add_options_page(
-            'Very Simple WordPress Popup',
+            'Very Simple wp Popup',
             'VSWP Popup',
             'manage_options',
             'very-simple-wp-popup-settings',

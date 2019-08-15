@@ -1,4 +1,4 @@
-=== Very Simple WordPress Popup ===
+=== Very Simple wp Popup ===
 Contributors: jchaves
 Version:	1.2
 Tags: popup, pop-up
@@ -9,11 +9,11 @@ License: GPLv2 or later
 Donate link: https://www.paypal.me/jschaves
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Very Simple WordPress Popup 
+Very Simple wp Popup 
 
 == Description ==
 
-Very Simple WordPress Popup is a plugin to create customized popus easily by means of a simple form.
+Very Simple wp Popup is a plugin to create customized popus easily by means of a simple form.
 
 This is how it works:
 
@@ -27,7 +27,7 @@ This is how it works:
 
 Installation for General Use
 
-* Upload the Very Simple WordPress Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
+* Upload the Very Simple wp Popup plugin to your blog, activate it, then go to menu Settings and then select VSWP Popup.
 * In a post or page use the shortcode `[vswppopup ID=xxxxxxxxxxx title=xxxxxxxxxxxx]` to create a popup link.
 
 == Screenshots ==

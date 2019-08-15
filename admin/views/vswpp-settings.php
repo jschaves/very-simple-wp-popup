@@ -14,7 +14,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<input type="hidden" name="cmd" value="_donations">
 
 		<!-- Specify details about the contribution -->
-		<input type="hidden" name="item_name" value="Very Sinple WordPress Popup (WordPress plugin)">
+		<input type="hidden" name="item_name" value="Very Sinple wp Popup (wp plugin)">
 		<input type="hidden" name="currency_code" value="EUR">
 
 		<!-- Display the payment button. -->
