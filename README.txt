@@ -32,12 +32,12 @@ Installation for General Use
 
 == Screenshots ==
 
-1. screenshot-1.jpg
-2. screenshot-2.jpg
-3. screenshot-3.jpg
-4. screenshot-4.jpg
+1. screenshot-1.png
+2. screenshot-2.png
 
 == Changelog ==
 
 = 1.2.0 29.07.2019 =
+* Various **bug fixes**
+= 1.3.0 16.08.2019 =
 * Various **bug fixes**

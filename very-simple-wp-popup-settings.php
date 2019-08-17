@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://github.com/jschaves/
- * @since             1.0.0
+ * @since             1.3
  * @package           Very_Simple_Wp_Popup
  *
  * @wp-plugin
