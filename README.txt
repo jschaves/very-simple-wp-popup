@@ -1,6 +1,6 @@
 === Very Simple wp Popup ===
 Contributors: jchaves
-Version:	1.2
+Version:	1.4
 Tags: popup, pop-up
 Stable tag: trunk
 Requires at least: 4.4

@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://github.com/jschaves/
- * @since             1.3
+ * @since             1.4
  * @package           Very_Simple_Wp_Popup
  *
  * @wp-plugin
  * Plugin Name:       Very Simple wp Popup
  * Plugin URI:        https://github.com/jschaves/very-simple-wp-popup
  * Description:       This is a short description of what the plugin does. It's displayed in the wp admin area.
- * Version:           1.0.0
+ * Version:           1.4
  * Author:            Juan Chaves
  * Author URI:        https://github.com/jschaves/
  * License:           GPL-2.0+
